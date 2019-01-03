@@ -50,7 +50,7 @@ RUN mv /usr/sbin/tcpdump /usr/bin/tcpdump
 
 # Installing ctop - top-like container monitor
 RUN wget https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64 -O /usr/local/bin/ctop && chmod +x /usr/local/bin/ctop
-
+RUN date +%s | sha256sum | base64 | head -c 32 ; echo > /tmp/.junk
 # Installing calicoctl
 RUN wget https://github.com/projectcalico/calicoctl/releases/download/v3.1.1/calicoctl -O /usr/local/bin/calicoctl && chmod +x /usr/local/bin/calicoctl 
 
